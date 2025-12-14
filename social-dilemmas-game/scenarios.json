@@ -1,0 +1,173 @@
+[
+  {
+    "id": "npr",
+    "title": "Funding NPR",
+    "story": "Many listeners enjoy NPR broadcasts but never donate. Individuals benefit while avoiding the small personal cost of supporting the collective good. One day, you're listening to your favorite podcast and they ask you to donate $10. What do you do?",
+    "dilemmaType": "PD",
+    "youLabel": "You",
+    "oppLabel": "Other Listener",
+    "actionLabels": { "C": "Donate", "D": "Free-ride" }
+  },
+  {
+    "id": "rd",
+    "title": "R&D Expenditures",
+    "story": "Division heads vote on R&D funding. Everyone knows long-term survival depends on R&D, but the payoff is far in the future and budgets are tight now.",
+    "dilemmaType": "ASSURANCE",
+    "youLabel": "Your Division",
+    "oppLabel": "Other Division",
+    "actionLabels": { "C": "Fund R&D", "D": "Cut R&D" }
+  },
+  {
+    "id": "bill",
+    "title": "Splitting the Bill",
+    "story": "A group agrees to split the dinner bill evenly. Each person could order something expensive, spreading the cost to everyone—unless everyone does it. The waiter comes to you for your order. What do you do?",
+    "dilemmaType": "PD",
+    "youLabel": "You",
+    "oppLabel": "Friend",
+    "actionLabels": { "C": "Order modestly", "D": "Order expensive" }
+  },
+  {
+    "id": "international",
+    "title": "International Business Ethics",
+    "story": "A board considers leaving a market due to human rights violations. Leaving reduces profits; staying may fund unethical actors. What if the other firm stays? The vote comes down to you and your coworker. Without knowing what your coworker is going to say, what do you do?",
+    "dilemmaType": "CHICKEN",
+    "youLabel": "Your Firm",
+    "oppLabel": "Other Firm",
+    "actionLabels": { "C": "Pull out", "D": "Stay in" }
+  },
+  {
+    "id": "nuclear",
+    "title": "Nuclear Energy and the Environment",
+    "story": "Nuclear power produces large amounts of clean energy, but accidents and radioactive waste pose serious risks. Your country must decide whether to expand nuclear energy, knowing others are making similar decisions. What do you do?",
+    "dilemmaType": "CHICKEN",
+    "youLabel": "Your Country",
+    "oppLabel": "Other Country",
+    "actionLabels": { "C": "Limit nuclear use", "D": "Expand nuclear use" }
+  },
+  {
+    "id": "digital_divide",
+    "title": "The Digital Divide",
+    "story": "Access to technology improves education and job opportunities, but expanding access costs money. Some regions invest heavily, while others wait and benefit indirectly. Your region is deciding whether to invest. What do you do?",
+    "dilemmaType": "ASSURANCE",
+    "youLabel": "Your Region",
+    "oppLabel": "Other Region",
+    "actionLabels": { "C": "Invest in access", "D": "Delay investment" }
+  },
+  {
+    "id": "animal_testing",
+    "title": "Animal Testing and Ethics",
+    "story": "Animal testing can speed up medical breakthroughs, but raises ethical concerns about animal welfare. Research labs must decide whether to continue animal testing while competitors make their own choices. What do you do?",
+    "dilemmaType": "CHICKEN",
+    "youLabel": "Your Lab",
+    "oppLabel": "Other Lab",
+    "actionLabels": { "C": "Reduce testing", "D": "Continue testing" }
+  },
+  {
+    "id": "automation",
+    "title": "Automation and Job Loss",
+    "story": "Automation increases efficiency but can displace workers. Companies can invest in retraining or focus solely on automation. You must decide your company’s approach without knowing what competitors will do. What do you do?",
+    "dilemmaType": "PD",
+    "youLabel": "Your Company",
+    "oppLabel": "Other Company",
+    "actionLabels": { "C": "Retrain workers", "D": "Automate fully" }
+  },
+  {
+    "id": "piracy",
+    "title": "Online Piracy",
+    "story": "Movies, music, and books are easy to access online for free. Paying supports creators, but skipping payment saves money. You are deciding how to access content, knowing others face the same choice. What do you do?",
+    "dilemmaType": "PD",
+    "youLabel": "You",
+    "oppLabel": "Other User",
+    "actionLabels": { "C": "Pay legally", "D": "Pirate content" }
+  },
+  {
+    "id": "sustainable_ag",
+    "title": "Sustainable Agriculture",
+    "story": "Sustainable farming reduces climate impact but costs more upfront. Farmers benefit most if many adopt these practices, but switching alone can be risky. You must decide your approach. What do you do?",
+    "dilemmaType": "ASSURANCE",
+    "youLabel": "Your Farm",
+    "oppLabel": "Other Farm",
+    "actionLabels": { "C": "Adopt sustainable methods", "D": "Use conventional methods" }
+  },
+  {
+    "id": "cybersecurity",
+    "title": "Cybersecurity and Internet Freedom",
+    "story": "Strong online surveillance can prevent cyber attacks, but it also limits privacy and freedom. Governments must decide their policies without knowing how strict others will be. What do you do?",
+    "dilemmaType": "CHICKEN",
+    "youLabel": "Your Government",
+    "oppLabel": "Other Government",
+    "actionLabels": { "C": "Limit surveillance", "D": "Expand surveillance" }
+  },
+  {
+    "id": "gig_economy",
+    "title": "Gig Economy and Worker Protections",
+    "story": "Gig work offers flexibility but lacks benefits like healthcare and job security. Companies can improve protections, but doing so costs money. You must decide your company’s policy. What do you do?",
+    "dilemmaType": "PD",
+    "youLabel": "Your Company",
+    "oppLabel": "Other Company",
+    "actionLabels": { "C": "Provide benefits", "D": "Avoid benefits" }
+  },
+  {
+    "id": "antibiotics",
+    "title": "Antibiotic Overuse",
+    "story": "Antibiotics save lives, but overuse leads to resistant bacteria. Doctors must decide whether to prescribe antibiotics now or hold back for long-term safety. What do you do?",
+    "dilemmaType": "PD",
+    "youLabel": "You (Doctor)",
+    "oppLabel": "Other Doctor",
+    "actionLabels": { "C": "Prescribe carefully", "D": "Prescribe freely" }
+  },
+  {
+    "id": "gentrification",
+    "title": "Gentrification",
+    "story": "New development can improve a neighborhood but may displace long-term residents. City leaders must decide whether to encourage rapid development or slow it down. What do you do?",
+    "dilemmaType": "CHICKEN",
+    "youLabel": "City Planner",
+    "oppLabel": "Developer",
+    "actionLabels": { "C": "Limit development", "D": "Encourage development" }
+  },
+  {
+    "id": "free_education",
+    "title": "Free University Education",
+    "story": "Offering free university education benefits society but requires higher taxes. Citizens must decide whether to support the policy, knowing others are making the same choice. What do you do?",
+    "dilemmaType": "PD",
+    "youLabel": "You",
+    "oppLabel": "Other Taxpayer",
+    "actionLabels": { "C": "Support funding", "D": "Oppose funding" }
+  },
+  {
+    "id": "deforestation",
+    "title": "Deforestation",
+    "story": "Clearing rainforest land helps farmers support their families but worsens climate change. Farmers must decide whether to preserve trees or clear land, knowing others face the same choice. What do you do?",
+    "dilemmaType": "PD",
+    "youLabel": "Your Farm",
+    "oppLabel": "Other Farm",
+    "actionLabels": { "C": "Preserve forest", "D": "Clear land" }
+  },
+  {
+    "id": "fishing",
+    "title": "Overharvesting Fish",
+    "story": "Fishing companies see catches decline but continue to fish heavily to maximize profits today. If everyone fishes less, stocks could recover. What do you do?",
+    "dilemmaType": "PD",
+    "youLabel": "Your Company",
+    "oppLabel": "Other Company",
+    "actionLabels": { "C": "Limit fishing", "D": "Overfish" }
+  },
+  {
+    "id": "lawn",
+    "title": "Watering the Lawn",
+    "story": "During a drought, residents are asked not to water their lawns. Letting your lawn die looks bad, but if everyone cooperates water shortages ease. What do you do?",
+    "dilemmaType": "PD",
+    "youLabel": "You",
+    "oppLabel": "Neighbor",
+    "actionLabels": { "C": "Stop watering", "D": "Water lawn" }
+  },
+  {
+    "id": "insurance",
+    "title": "Insurance Fraud",
+    "story": "Filing a dishonest insurance claim can bring quick money, but widespread fraud raises premiums for everyone. You are deciding how honest to be. What do you do?",
+    "dilemmaType": "PD",
+    "youLabel": "You",
+    "oppLabel": "Other Policyholder",
+    "actionLabels": { "C": "Be honest", "D": "Commit fraud" }
+  }
+]

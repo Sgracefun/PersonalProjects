@@ -1,0 +1,199 @@
+:root {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --app-bg: #f6f7fb;
+  --app-text: #111111;
+  --card-bg: #ffffff;
+  --card-border: #e6e6ee;
+}
+#bgCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+body { margin: 0; background: var(--app-bg); color: var(--app-text); }
+.app { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 24px; color: var(--app-text); }
+header h1 { margin: 0 0 4px 0; }
+.sub { margin: 0; color: var(--app-text); opacity: 0.7; }
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 18px;
+  margin-top: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.row { display: flex; gap: 12px; align-items: center; margin: 10px 0; color: var(--app-text); }
+.row label { width: 180px; color: var(--app-text); opacity: 0.85; }
+input, select { padding: 8px; border-radius: 10px; border: 1px solid #ddd; min-width: 200px; color: inherit; background: var(--card-bg); }
+
+button {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #1f6feb;
+  color: white;
+  font-weight: 600;
+}
+button.secondary { background: #eee; color: #111; }
+
+.actions { display: flex; gap: 12px; margin: 12px 0; }
+.actions button { flex: 1; }
+
+.divider { height: 1px; background: #eee; margin: 14px 0; }
+
+.meta { color: var(--app-text); opacity: 0.8; font-size: 0.95rem; }
+.scores { display: flex; gap: 20px; }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.box { border: 1px solid var(--card-border); border-radius: 12px; padding: 12px; background: var(--card-bg); }
+
+.hint { color: var(--app-text); opacity: 0.7; font-size: 0.9rem; }
+.tiny { color: var(--app-text); opacity: 0.8; font-size: 0.85rem; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+
+.hidden { display: none !important; }
+
+.global-points {
+  text-align: right;
+  font-weight: 600;
+  margin-top: 8px;
+  color: var(--app-text);
+}
+
+
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.palette-card {
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.palette-preview {
+  height: 60px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.palette-card button {
+  width: 100%;
+}
+
+.palette-card .cost {
+  font-size: 0.85rem;
+  color: var(--app-text);
+  opacity: 0.75;
+}
+
+.shop-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.info-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--app-text);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 20;
+}
+
+.modal-content {
+  background: var(--card-bg);
+  color: var(--app-text);
+  padding: 20px;
+  border-radius: 14px;
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid var(--card-border);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--app-text);
+}
+.order-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.order-chip {
+  background: #edf2ff;
+  color: #0f2a61;
+  border: 1px dashed #7ea5ff;
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: grab;
+  font-size: 0.9rem;
+}
+
+.order-chip:active {
+  cursor: grabbing;
+}
+
+button.small {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+}
+
+.fg-options {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.ink-swatch {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  vertical-align: middle;
+  margin-left: 6px;
+}
