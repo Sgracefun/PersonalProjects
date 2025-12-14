@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Social Dilemmas Game</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="bgCanvas"></canvas>
+  <div class="app">
+    <header>
+      <h1>Social Dilemmas</h1>
+      <p class="sub">Play repeated rounds of a dilemma and see what happened (and why).</p>
+    </header>
+    <div class="global-points" id="globalPointsDisplay">Total points: 0</div>
+
+    <section class="card" id="setupCard">
+      <h2>Setup</h2>
+
+      <div class="row">
+        <label>Rounds (trials):</label>
+        <input id="roundsInput" type="number" min="1" max="50" value="10" />
+      </div>
+
+      <div class="row">
+        <label>Opponent:</label>
+        <select id="modeSelect">
+          <option value="ai">AI opponent</option>
+          <option value="human">Human (same laptop)</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <label>Difficulty:</label>
+        <select id="difficultySelect">
+          <option value="easy">Easy — Play + Learn</option>
+          <option value="medium">Medium — Mystery mode</option>
+          <option value="hard">Hard — Full deduction</option>
+        </select>
+      </div>
+
+      <div class="row" id="aiRow">
+        <label>AI strategy:</label>
+        <select id="aiSelect">
+          <option value="random">Random</option>
+          <option value="titfortat">Tit-for-Tat</option>
+          <option value="alwaysC">Always Cooperate</option>
+          <option value="alwaysD">Always Defect</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <label>Scenario selection:</label>
+        <select id="scenarioSelect">
+          <option value="random">Random</option>
+        </select>
+      </div>
+
+      <button id="startBtn">Start Game</button>
+      <p class="hint">Tip: If you run this locally see the “Run it” instructions below (you need a local server for JSON).</p>
+    </section>
+
+    <section class="card" id="customizeCard">
+      <div class="shop-header">
+        <h2>Style shop (50 pts each)</h2>
+        <button class="info-btn" id="styleInfoBtn" type="button">i</button>
+      </div>
+      <p class="tiny">Unlock color themes to give your game a fresh look.</p>
+      <div class="palette-grid" id="paletteGrid"></div>
+      <div class="divider"></div>
+      <div class="shop-header">
+        <h2>Drawing colors (50 pts each)</h2>
+      </div>
+      <p class="tiny">Draw on the background (outside the cards). Unlock new ink colors with points. Black is free.</p>
+      <div class="row">
+        <label>Current ink:</label>
+        <span id="activeInkLabel">Black</span>
+        <span class="ink-swatch" id="activeInkSwatch" aria-hidden="true"></span>
+        <button class="secondary small" id="clearDrawingBtn" type="button">Clear drawing</button>
+      </div>
+      <div class="palette-grid" id="drawColorGrid"></div>
+
+    </section>
+
+    <div class="modal hidden" id="styleInfoModal">
+      <div class="modal-content">
+        <button class="close-btn" id="closeStyleInfo" type="button">×</button>
+        <h3>Why a shop?</h3>
+        <p>Wondering why this is here? We're hoping that this shop will encourage you to see how to maximize points in each scenario! What strategy works best for each? What strategy works best against different strategies?</p>
+      </div>
+    </div>
+
+    <section class="card hidden" id="gameCard">
+      <h2 id="scenarioTitle"></h2>
+      <p id="scenarioStory"></p>
+      <div class="meta" id="scenarioMeta"></div>
+
+      <div class="divider"></div>
+
+      <h3>Round <span id="roundNum">1</span> / <span id="roundTotal">10</span></h3>
+
+      <div class="actions">
+        <button id="coopBtn">Cooperate</button>
+        <button id="defectBtn">Defect</button>
+      </div>
+
+      <div class="row">
+        <label>Your last move:</label>
+        <span id="yourLast">—</span>
+      </div>
+      <div class="row">
+        <label>Opponent last move:</label>
+        <span id="oppLast">—</span>
+      </div>
+      <div class="row">
+        <label>Last payoff:</label>
+        <span id="lastPayoff">—</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="scores">
+        <div><strong>You:</strong> <span id="scoreYou">0</span></div>
+        <div><strong>Opponent:</strong> <span id="scoreOpp">0</span></div>
+      </div>
+
+      <button class="secondary" id="quitBtn">Quit</button>
+    </section>
+
+    <section class="card hidden" id="resultsCard">
+      <h2>Results</h2>
+
+      <p id="winnerLine"></p>
+
+      <div class="grid">
+        <div class="box">
+          <h3>Totals</h3>
+          <p>You: <strong id="finalYou">0</strong></p>
+          <p>Opponent: <strong id="finalOpp">0</strong></p>
+        </div>
+
+        <div class="box">
+          <h3>Outcome counts</h3>
+          <p>C/C: <strong id="ccCount">0</strong></p>
+          <p>C/D: <strong id="cdCount">0</strong></p>
+          <p>D/C: <strong id="dcCount">0</strong></p>
+          <p>D/D: <strong id="ddCount">0</strong></p>
+        </div>
+      </div>
+
+        <div class="box hidden" id="guessBox">
+          <h3>Medium mode: What dilemma do you think this was?</h3>
+          <div class="row">
+            <label>Your guess:</label>
+            <select id="guessSelect"></select>
+          </div>
+
+         <button id="submitGuessBtn">Submit guess</button>
+         <p id="guessFeedback"></p>
+        </div>       
+
+        <div class="box hidden" id="hardBox">
+          <h3>Hard mode: Deduce everything</h3>
+          <p class="tiny">Step 1: Drag the payoff labels from highest to lowest.</p>
+          <div class="order-list" id="orderList"></div>
+          <button type="button" class="secondary small" id="resetOrderBtn">Reset order</button>
+
+          <p class="tiny">Step 2: Which motives were present?</p>
+          <div class="fg-options">
+            <label><input type="checkbox" id="fearCheckbox" /> Fear</label>
+            <label><input type="checkbox" id="greedCheckbox" /> Greed</label>
+          </div>
+
+          <p class="tiny">Step 3: Which dilemma do you think this was?</p>
+          <div class="row">
+            <label>Your guess:</label>
+            <select id="hardGuessSelect"></select>
+          </div>
+
+          <button id="submitHardBtn">Submit answers</button>
+          <p id="hardFeedback"></p>
+        </div>
+
+      <div class="box">
+        <h3>What dilemma was this?</h3>
+        <p id="simpleMeaning"></p>
+        <p id="dilemmaExplain"></p>
+        <p id="trpsLegend"></p>
+        <p id="fearGreedLegend"></p>
+        <p id="fearGreedLine"></p>
+      </div>
+
+      <button id="playAgainBtn">Play Again</button>
+    </section>
+
+    <footer>
+      <p class="tiny">Built for class concepts: Prisoner’s Dilemma, Assurance (Valentine's Day), Chicken.</p>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
